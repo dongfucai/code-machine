@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN" "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+<generatorConfiguration>
+	<!-- 数据库驱动包位置 -->
+	<!--
+	<classPathEntry
+			location="/Users/lixuemei/.m2/repository/mysql/mysql-connector-java/5.1.25/" />
+			-->
+
+	<context id="MysqlTables" targetRuntime="MyBatis3">
+		<commentGenerator>
+			<property name="suppressAllComments" value="true" />
+		</commentGenerator>
+
+		<!-- 数据库链接URL、用户名、密码 -->
+		<jdbcConnection driverClass="com.mysql.jdbc.Driver"
+						connectionURL="jdbc:mysql://127.0.0.1:3306/login" userId="root"
+						password="aaaaaa">
+		</jdbcConnection>
+
+
+		<javaTypeResolver>
+			<property name="forceBigDecimals" value="true" />
+		</javaTypeResolver>
+
+		<!-- 生成实体类的包名和位置 -->
+		<javaModelGenerator targetPackage="com.tz.oa.sysmanage.entity"
+							targetProject="MAVEN">
+			<property name="enableSubPackages" value="true" />
+			<property name="trimStrings" value="true" />
+		</javaModelGenerator>
+		<!-- 生成的SQL映射文件包名和位置 -->
+		<sqlMapGenerator targetPackage="com.tz.oa.sysmanage.mapper" targetProject="MAVEN">
+			<property name="enableSubPackages" value="true" />
+			<property name="trimStrings" value="true" />
+		</sqlMapGenerator>
+		<!-- 生成DAO的包名和位置 -->
+		<javaClientGenerator type="XMLMAPPER" targetPackage="com.tz.oa.sysmanage.mapper" targetProject="MAVEN">
+			<property name="enableSubPackages" value="true" />
+			<property name="trimStrings" value="true" />
+		</javaClientGenerator>
+
+		<!-- 要生成哪些表 -->
+		<table tableName="login_table" domainObjectName="User"
+			   enableCountByExample="false" enableUpdateByExample="true"
+			   enableDeleteByExample="true" enableSelectByExample="true"
+			   selectByExampleQueryId="false" >
+			<!-- 自定义javaType -->
+		<!--	<columnOverride column="time_unit" javaType="Integer" /> -->
+		</table>
+	</context>
+</generatorConfiguration>
